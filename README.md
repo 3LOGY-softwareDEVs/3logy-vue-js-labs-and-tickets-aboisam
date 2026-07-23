@@ -1,128 +1,45 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/wn3_OuAC)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=24254098&assignment_repo_type=AssignmentRepo)
-# Week 15 — Advanced Frontend: Vue.js & Enterprise SPAs
+# Vue.js Labs and Tickets: Week 15
 
-**Duration:** Monday–Friday, Week 15
-**Focus:** Vue.js Composition API, Reactivity, Vite Tooling, Pinia, and Enterprise Routing
-**Track:** Advanced Enterprise Track (Cross-Training)
+This repository contains the completed work for Week 15 of the Vue.js curriculum. Over the course of the week, I built and iteratively improved a series of applications demonstrating core Vue concepts including reactivity, component architecture, routing, and global state management.
 
----
+## 🚀 Projects Overview
 
-## 🎯 LEARNING OBJECTIVES
+The week's tasks were divided into Labs (focused exercises) and Tickets (broader, practical applications) across three main concepts.
 
-By the end of Week 15, students will be able to:
-- ✅ Scaffold modern, blazingly fast frontend projects using Vite
-- ✅ Understand the Vue 3 Composition API (`<script setup>`)
-- ✅ Manage local component state using `ref` and `reactive`
-- ✅ Extract reusable business logic into Composables (Vue's custom hooks)
-- ✅ Handle forms and robust client-side validation
-- ✅ Implement client-side routing with Vue Router and Navigation Guards
-- ✅ Manage complex global application state using Pinia
+### 1. Component Architecture & Props/Emits (Tuesday)
+- **LAB-54 (Task Dashboard)**: Built a modular dashboard utilizing `defineProps` and `defineEmits`. Demonstrated unidirectional data flow by passing state from a parent `Dashboard.vue` to a child `TaskCard.vue`, and emitting a `completeTask` event back up.
+- **TICKET-54 (Modular E-Commerce UI)**: Developed a storefront UI with nested components (`App` -> `ProductList` -> `ProductCard`). Extracted data fetching logic into a reusable `useProducts.js` composable to fetch data from the Fake Store API.
 
----
+### 2. Vue Router & Forms (Wednesday)
+- **LAB-55 (Protected Routing)**: Implemented Vue Router to create a multi-page application with a "Login Wall". Configured a global `beforeEach` navigation guard to protect the `/admin` route. Utilized `computed` properties for client-side form validation.
+- **TICKET-55 (Multi-Page Router Store)**: Upgraded the e-commerce store into a 4-page SPA (`/`, `/products`, `/products/:id`, `/checkout`). Demonstrated dynamic routing with route parameters and built a robust checkout form requiring validation across multiple fields.
 
-## 📅 WEEKLY SCHEDULE
+### 3. Global State Management with Pinia (Thursday)
+- **LAB-56 (Pinia Dashboard Refactor)**: Refactored LAB-54 by migrating local state and events into a global Pinia Setup Store (`taskStore.js`). Eliminated prop-drilling and `defineEmits` entirely, allowing the `TaskCard` component to interact directly with the store via a `toggleComplete` action.
+- **TICKET-56 (Pinia E-Commerce Cart)**: Integrated Vue Router and Pinia together to create a fully functional shopping cart. Created a `cartStore.js` to manage items, quantities, and a computed total price. The global `NavBar` component reactively displays the cart count across all routes.
 
-### Monday (2:00–5:00 PM Physical)
-**Topic:** Introduction to Vue & The Composition API
-- **Refresher:** Component architecture and virtual DOM (React vs Vue)
-- **Lecture:** Vite setup, template syntax, reactivity, computed properties
-- **Demo:** Building a reactive "Live Search" component
-- **Lab 53:** Build a reactive "Productivity Tracker" component
-- **Assigned:** TICKET-53 (Vue Fundamentals)
+## 🛠️ Tech Stack & Tooling
+- **Vue 3** (Composition API & `<script setup>`)
+- **Vite** (Build Tooling & Dev Server)
+- **Vue Router 4** (Client-side Routing)
+- **Pinia** (State Management)
+- **ESLint & Prettier** (Code Quality)
 
-### Tuesday (Virtual)
-**Topic:** Component Communication & Composables
-- **Refresher:** Props, data flow, and DRY principles
-- **Lecture:** Emitting events, Props validation, Lifecycle hooks, and creating Composables
-- **Demo:** Refactoring logic into a `useFetch` composable
-- **Lab 54:** Build a "Task Dashboard" with parent/child communication
-- **Assigned:** TICKET-54 (Modular UI Design)
+## 🏃‍♂️ How to Run the Projects
 
-### Wednesday (9:00–11:00 AM Physical)
-**Topic:** Vue Router & Enterprise Form Validation
-- **Refresher:** SPAs vs MPAs, Controlled vs Uncontrolled inputs
-- **Lecture:** Vue Router setup, dynamic routes, auth guards, and `v-model` form validation
-- **Demo:** Building a multi-page dashboard with protected routes and validated forms
-- **Lab 55:** Add routing and an "Admin Only" form to the Dashboard
-- **Assigned:** TICKET-55 (Routing & Forms)
+Each project is its own standalone Vite application. To run a specific project:
 
-### Thursday (Virtual)
-**Topic:** Global State Management with Pinia
-- **Refresher:** The "prop-drilling" problem and global state needs
-- **Lecture:** Pinia stores, Actions, Getters, and state persistence
-- **Demo:** Moving local component state into a global Pinia store
-- **Lab 56:** Refactor the Task Dashboard to be fully state-managed by Pinia
-- **Assigned:** TICKET-56 (Pinia State Management)
+1. Navigate to the project's directory in your terminal. For example:
+   ```bash
+   cd THURSDAY/vue-pinia-store
+   ```
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
+3. To test the production build locally:
+   ```bash
+   npm run build
+   ```
 
-### Friday
-**Topic:** Week Review & Python Prep
-- Review all Week 15 concepts through peer code reviews
-- **All Week 15 labs/tickets due by 5:00 PM**
-- Ensure Python 3.10+ is installed for Week 16
-
----
-
-## 📁 FOLDER STRUCTURE
-
-```
-WEEK-15/
-├── README.md                      ← You are here
-├── MONDAY/
-│   ├── LECTURE/
-│   ├── DEMOS/
-│   └── LAB-53/
-├── TUESDAY/
-│   ├── LECTURE/
-│   ├── DEMOS/
-│   └── LAB-54/
-├── WEDNESDAY/
-│   ├── LECTURE/
-│   ├── DEMOS/
-│   └── LAB-55/
-├── THURSDAY/
-│   ├── LECTURE/
-│   ├── DEMOS/
-│   └── LAB-56/
-├── FRIDAY/
-│   └── RETROSPECTIVE/
-└── TICKETS/
-    ├── TICKET-53.md
-    ├── TICKET-54.md
-    ├── TICKET-55.md
-    └── TICKET-56.md
-```
-
----
-
-## 🔧 PREREQUISITES
-
-**Students need before Week 15:**
-- ✅ Node.js 18+ installed (LTS)
-- ✅ Vue Language Features (Volar) extension installed in VS Code
-- ✅ Solid understanding of JavaScript ES6+ (from Weeks 1-14)
-
-**Installation check (Monday first thing):**
-```bash
-npm create vue@latest --version  # Ensure npm and create-vue are working
-```
-
----
-
-## 📊 GRADING
-
-| Assignment | Points | Due |
-|-----------|--------|-----|
-| LAB-53: Productivity Tracker | 12.5 | Monday EOD |
-| LAB-54: Task Dashboard | 12.5 | Tuesday EOD |
-| LAB-55: Routing & Forms | 12.5 | Wednesday EOD |
-| LAB-56: Pinia Refactor | 12.5 | Thursday EOD |
-| TICKET-53: Vue Fundamentals | 12.5 | Wednesday 9am |
-| TICKET-54: Modular UI Design | 12.5 | Thursday 5pm |
-| TICKET-55: Routing & Forms | 12.5 | Monday Week 16 2pm |
-| TICKET-56: Pinia State Management | 12.5 | Sunday 11:59pm |
-| **Total** | **100** | |
-
----
-
-**Let's modernize the frontend! 🚀**
+*Note: If you run into build errors related to `@vue/devtools-api`, ensure that it is installed (`npm install @vue/devtools-api`) since strict peer dependency resolution can occasionally skip it during initial setup.*
